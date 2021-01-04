@@ -7,8 +7,10 @@ const buttonStyle = {
   margin: '10px'
 };
 
+// 傻瓜组件
 class Counter extends Component {
   render() {
+    // 只需要根据props来render
     const {caption, onIncrement, onDecrement, value} = this.props;
 
     return (

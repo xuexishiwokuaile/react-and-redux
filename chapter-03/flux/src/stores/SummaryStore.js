@@ -9,7 +9,7 @@ function computeSummary(counterValues) {
   let summary = 0;
   for (const key in counterValues) {
     if (counterValues.hasOwnProperty(key)) {
-      summary += counterValues[key];
+      summary += counterValues[key]; // 计算总和
     }
   }
   return summary;
@@ -38,6 +38,7 @@ const SummaryStore = Object.assign({}, EventEmitter.prototype, {
 SummaryStore.dispatchToken = AppDispatcher.register((action) => {
   if ((action.type === ActionTypes.INCREMENT) ||
       (action.type === ActionTypes.DECREMENT)) {
+    // 等待参数中代表的回调函数是否执行完成
     AppDispatcher.waitFor([CounterStore.dispatchToken]);
 
     SummaryStore.emitChange();

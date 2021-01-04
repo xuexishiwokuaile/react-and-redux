@@ -1,6 +1,8 @@
 import {createStore} from 'redux';
 import reducer from './Reducer.js';
 
+// 输出全局唯一的store
+
 const initValues = {
   'First': 0,
   'Second': 10,

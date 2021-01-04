@@ -9,6 +9,7 @@ class Provider extends Component {
   }
 
   render() {
+    // children代表子组件
     return this.props.children;
   }
 

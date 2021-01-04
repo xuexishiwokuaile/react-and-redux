@@ -43,6 +43,7 @@ class Counter extends Component {
   }
 
   componentDidMount() {
+    // 监听store的变化
     store.subscribe(this.onChange);
   }
 

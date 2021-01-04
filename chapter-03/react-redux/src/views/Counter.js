@@ -23,6 +23,7 @@ Counter.propTypes = {
   value: PropTypes.number.isRequired
 };
 
+// 将Store上的状态转化为内层组件的props
 function mapStateToProps(state, ownProps) {
   return {
     value: state[ownProps.caption]
@@ -40,5 +41,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   }
 }
 
+// 不需要定义容器组件
+// 函数实际上返回一个CounterContainer
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 

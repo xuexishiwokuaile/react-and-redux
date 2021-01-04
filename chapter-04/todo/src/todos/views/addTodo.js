@@ -13,13 +13,16 @@ class AddTodo extends Component {
   }
 
   onSubmit(ev) {
-    ev.preventDefault();
+    ev.preventDefault(); // 阻止网页跳转
 
     const input = this.input;
+    // 删除两端的空白字符
     if (!input.value.trim()) {
+      // input为空时
       return;
     }
-
+    
+    // 派发action
     this.props.onAdd(input.value);
     input.value = '';
   }
@@ -32,6 +35,7 @@ class AddTodo extends Component {
     return (
       <div className="add-todo">
         <form onSubmit={this.onSubmit}>
+          {/* ref可以用来访问真实的dom元素 */}
           <input className="new-todo" ref={this.refInput} />
           <button className="add-btn" type="submit">
             添加

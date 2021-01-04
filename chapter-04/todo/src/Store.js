@@ -8,7 +8,9 @@ import Perf from 'react-addons-perf'
 const win = window;
 win.Perf = Perf
 
+// 将两个reducer组合
 const reducer = combineReducers({
+  // 对应state状态上的字段名
   todos: todoReducer,
   filter: filterReducer
 });

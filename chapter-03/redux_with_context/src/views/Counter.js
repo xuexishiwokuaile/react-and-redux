@@ -30,6 +30,8 @@ Counter.propTypes = {
 
 class CounterContainer extends Component {
   constructor(props, context) {
+    // 构造函数中需要传入context
+    // 也可以直接使用...arguments
     super(props, context);
 
     this.onIncrement = this.onIncrement.bind(this);
