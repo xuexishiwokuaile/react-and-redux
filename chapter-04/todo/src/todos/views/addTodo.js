@@ -10,12 +10,17 @@ class AddTodo extends Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.refInput = this.refInput.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+    this.state = {
+      value:''
+    };
   }
 
   onSubmit(ev) {
     ev.preventDefault(); // 阻止网页跳转
 
     const input = this.input;
+    // const input = this.state.value;
     // 删除两端的空白字符
     if (!input.value.trim()) {
       // input为空时
@@ -24,11 +29,19 @@ class AddTodo extends Component {
     
     // 派发action
     this.props.onAdd(input.value);
+    // 发送完成后将input清空input value
     input.value = '';
+    this.setState({value: ''});
   }
 
   refInput(node) {
     this.input = node;
+  }
+
+  onInputChange(event) {
+    this.setState({
+      value: event.target.value
+    });
   }
 
   render() {
@@ -36,7 +49,7 @@ class AddTodo extends Component {
       <div className="add-todo">
         <form onSubmit={this.onSubmit}>
           {/* ref可以用来访问真实的dom元素 */}
-          <input className="new-todo" ref={this.refInput} />
+          <input className="new-todo" onChange={this.onInputChange} value={this.state.value} ref={this.refInput}/>
           <button className="add-btn" type="submit">
             添加
           </button>

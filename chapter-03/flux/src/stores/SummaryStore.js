@@ -38,7 +38,8 @@ const SummaryStore = Object.assign({}, EventEmitter.prototype, {
 SummaryStore.dispatchToken = AppDispatcher.register((action) => {
   if ((action.type === ActionTypes.INCREMENT) ||
       (action.type === ActionTypes.DECREMENT)) {
-    // 等待参数中代表的回调函数是否执行完成
+    // Dispatcher调用回调函数的顺序是无法预期的
+    // 等待参数中代表的回调函数执行完成
     AppDispatcher.waitFor([CounterStore.dispatchToken]);
 
     SummaryStore.emitChange();

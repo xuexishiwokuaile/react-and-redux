@@ -21,7 +21,7 @@ class Counter extends Component {
 
   getOwnState() {
     return {
-      value: store.getState()[this.props.caption]
+      value: store.getState()[this.props.caption] // 只取组件需要的部分
     };
   }
 

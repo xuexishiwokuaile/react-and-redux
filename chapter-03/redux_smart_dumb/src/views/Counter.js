@@ -74,6 +74,8 @@ class CounterContainer extends Component {
     store.unsubscribe(this.onChange);
   }
 
+  // counter是傻瓜组件，只使用props
+  // 只有render，所有数据都来自于props，“无状态”
   render() {
     return <Counter caption={this.props.caption}
       onIncrement={this.onIncrement}

@@ -11,6 +11,7 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
     {
       todos.map((item) => (
         <TodoItem
+          // 对于动态数量的子组件，每一个子组件都必须要带上一个key属性
           key={item.id}
           text={item.text}
           completed={item.completed}
@@ -32,7 +33,7 @@ const selectVisibleTodos = (todos, filter) => {
     case FilterTypes.ALL:
       return todos;
     case FilterTypes.COMPLETED:
-      return todos.filter(item => item.completed);
+      return todos.filter(item => item.completed); // 这里省略了return
     case FilterTypes.UNCOMPLETED:
       return todos.filter(item => !item.completed);
     default:

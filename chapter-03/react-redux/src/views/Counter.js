@@ -41,7 +41,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   }
 }
 
-// 不需要定义容器组件
-// 函数实际上返回一个CounterContainer
+// connect: 连接容器组件和傻瓜组件
+// 最后实际上返回一个CounterContainer容器组件
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 

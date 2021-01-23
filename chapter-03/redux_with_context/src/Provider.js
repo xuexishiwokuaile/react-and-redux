@@ -10,6 +10,7 @@ class Provider extends Component {
 
   render() {
     // children代表子组件
+    // 只是将子组件渲染出来
     return this.props.children;
   }
 

@@ -36,6 +36,7 @@ class Counter extends Component {
 
   onChange() {
     const newCount = CounterStore.getCounterValues()[this.props.caption];
+    // 同步变化
     this.setState({count: newCount});
   }
 
